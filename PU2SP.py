@@ -70,10 +70,8 @@ for x in release:
         fileName = (os.path.basename(urlparse(a).path))
         #Sets up the url for requesting a file upload
         requestUrl = sharePointUrl + '/_api/web/getfolderbyserverrelativeurl(\'' + folderUrl + '\')/Files/add(url=\'' + fileName + '\',overwrite=false)'
-        #requestUrls = sharePointUrl + '/_api/web/folders'
         response = urlopen(a)
         zipcontent= response.read()
-        #Execute the request. If you run into issues, inspect the contents of uploadResult
         uploadResult = requests.post(requestUrl,proxies=proxies,auth=auth, headers=headers,data=zipcontent)
         print('Patch ' + fileName )
 
